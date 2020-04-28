@@ -1,6 +1,11 @@
 #+TITLE: Emacs config
 #+STARTUP: overview
 * general
+** show line number
+#+BEGIN_SRC emacs-lisp
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
+#+END_SRC
 ** color & theme
 #+BEGIN_SRC emacs-lisp
 (if window-system (progn
