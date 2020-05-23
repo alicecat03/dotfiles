@@ -1,0 +1,29 @@
+#+TITLE: READEME.org
+* dotfiles
+** GNU Stow について
+この =dotfiles= は [[https://www.gnu.org/software/stow/][GNU Stow]] によって管理されています。
+GNU Stow はシンボリックリンクを管理するソフトウェアです。これはソースからビルドされたソフトウェアをユーザごとやシステム全体にインストールするのに役立ちますが，ホームディレクトリの設定ファイルを管理するのにも便利です。
+** GNU Stow のインストール
+*** GNU/Linux (Debian based)
+    #+begin_src shell
+      apt install stow
+    #+end_src
+*** macOS
+    - [[https://brew.sh/][Homebrew]]がインストールされた状態で
+    #+begin_src shell
+      brew install stow
+    #+end_src
+** dotfiles レポジトリのクローン
+   #+begin_src shell
+     git clone https://gitlab.com/iwaizm/dotfiles.git
+   #+end_src
+** 設定ファイルを導入
+   #+begin_src shell
+     cd dotfiles
+     stow hoge
+     stow hoge fuga
+   #+end_src
+** 設定ファイルを削除
+   #+begin_src shell
+     stow -D hoge
+   #+end_src
