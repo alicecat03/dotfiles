@@ -48,6 +48,7 @@
   (load-theme 'misterioso t)
 #+END_SRC
 * DDSKK
+- [[https://ddskk.readthedocs.io/ja/latest/index.html]]
 ** MEPLA経由でDDSKKを追加する
 init.elに =dotspacemacs-additional-packages '(ddskk)= を追加
    - 参照：[[ https://www.spacemacs.org/doc/DOCUMENTATION.html#orgheadline21]]
@@ -70,6 +71,7 @@ init.elに =dotspacemacs-additional-packages '(ddskk)= を追加
    (require 'org-tempo))
 #+END_SRC
 * ox-hugo
+- [[https://ox-hugo.scripter.co/]]
 #+BEGIN_SRC emacs-lisp :tangle user-config.el
   (use-package ox-hugo
     :ensure t
