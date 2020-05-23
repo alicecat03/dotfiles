@@ -6,70 +6,72 @@
 #+PROPERTY: header-args:emacs-lisp :comments link
 * Spacecmacsの設定をorg-modeで管理する
 ** .spacemacsについて
-=~/.spacemacs= は =~/.spacemacs.d/init.el= よりも優先度が高いので，=~/.spacemacs= は削除しておく。
+=~/.spacemacs= は =~/.spacemacs.d/init.el= よりも優先度が高いので， =~/.spacemacs= は削除しておく。
 - [[https://www.spacemacs.org/doc/DOCUMENTATION.html#alternative-dotdirectory]]
 ** 参考にしたもの
-   - [[https://www.reddit.com/r/emacs/comments/7ntc6p/spacemacs_configuration_in_a_structured_orgmode/]]
+- [[https://www.reddit.com/r/emacs/comments/7ntc6p/spacemacs_configuration_in_a_structured_orgmode/]]
 ** .spacemacs.d/init.el
 #+BEGIN_SRC emacs-lisp :tangle no
-(defun dotspacemacs/user-init ()
-;; tangle without actually loading org
-(let ((src (concat dotspacemacs-directory "spacemacs.org"))
-    (ui (concat dotspacemacs-directory "user-init.el"))
-    (uc (concat dotspacemacs-directory "user-config.el")))
-(when (or (file-newer-than-file-p src ui)
-          (file-newer-than-file-p src uc))
-  (call-process
-   (concat invocation-directory invocation-name)
-   nil nil t
-   "-q" "--batch" "--eval" "(require 'ob-tangle)"
-   "--eval" (format "(org-babel-tangle-file \"%s\")" src)))
-(load-file ui)))
+  (defun dotspacemacs/user-init ()
+  ;; tangle without actually loading org
+  (let ((src (concat dotspacemacs-directory "spacemacs.org"))
+      (ui (concat dotspacemacs-directory "user-init.el"))
+      (uc (concat dotspacemacs-directory "user-config.el")))
+  (when (or (file-newer-than-file-p src ui)
+            (file-newer-than-file-p src uc))
+    (call-process
+     (concat invocation-directory invocation-name)
+     nil nil t
+     "-q" "--batch" "--eval" "(require 'ob-tangle)"
+     "--eval" (format "(org-babel-tangle-file \"%s\")" src)))
+  (load-file ui)))
 
 
-(defun dotspacemacs/user-config ()
-  (let ((uc (concat dotspacemacs-directory "user-config.el")))
-    (load-file uc)))
+  (defun dotspacemacs/user-config ()
+    (let ((uc (concat dotspacemacs-directory "user-config.el")))
+      (load-file uc)))
 #+END_SRC
 * 基本設定
 ** 行番号を表示
 #+BEGIN_SRC emacs-lisp :tangle user-init.el
-(when (version<= "26.0.50" emacs-version )
-  (global-display-line-numbers-mode))
+  (when (version<= "26.0.50" emacs-version )
+    (global-display-line-numbers-mode))
 #+END_SRC
 ** 画面透過
 #+BEGIN_SRC emacs-lisp :tangle user-init.el
-(if window-system (progn
-    (set-frame-parameter nil 'alpha 90) ;透明度
-    ))
+  (if window-system (progn
+      (set-frame-parameter nil 'alpha 90) ;透明度
+      ))
 #+END_SRC
 ** Emacs テーマ
 #+BEGIN_SRC emacs-lisp :tangle user-config.el
-(load-theme 'misterioso t)
+  (load-theme 'misterioso t)
 #+END_SRC
 * DDSKK
 ** MEPLA経由でDDSKKを追加する
-init.elに
-#+BEGIN_SRC emacs-lisp :tangle no
-dotspacemacs-additional-packages '(ddskk)
-#+END_SRC
-を追加
+init.elに =dotspacemacs-additional-packages '(ddskk)= を追加
    - 参照：[[ https://www.spacemacs.org/doc/DOCUMENTATION.html#orgheadline21]]
 
 ** DDSKKのデフォルト化とキーバインディング・句読点
 
 #+BEGIN_SRC emacs-lisp :tangle user-init.el
-(global-set-key "\C-x\C-j" 'skk-mode)
-(global-set-key "\C-xj" 'skk-auto-fill-mode)
-(global-set-key "\C-xt" 'skk-tutorial)
+  (global-set-key "\C-x\C-j" 'skk-mode)
+  (global-set-key "\C-xj" 'skk-auto-fill-mode)
+  (global-set-key "\C-xt" 'skk-tutorial)
 
-(setq default-input-method "japanese-skk")
+  (setq default-input-method "japanese-skk")
 
-(setq-default skk-kutouten-type 'jp-en)
+  (setq-default skk-kutouten-type 'jp-en)
 #+END_SRC
 * Org-mode
 ** org-tempoを読み込む 
 #+BEGIN_SRC emacs-lisp :tangle user-config.el
   (when (version<= "9.2" (org-version))
    (require 'org-tempo))
+#+END_SRC
+* ox-hugo
+#+BEGIN_SRC emacs-lisp :tangle user-config.el
+  (use-package ox-hugo
+    :ensure t
+    :after ox)
 #+END_SRC

@@ -9,10 +9,6 @@
     ))
 ;; 画面透過:1 ends here
 
-;; [[file:~/dotfiles/emacs/.spacemacs.d/spacemacs.org::*Emacs%20%E3%83%86%E3%83%BC%E3%83%9E][Emacs テーマ:1]]
-(load-theme 'misterioso t)
-;; Emacs テーマ:1 ends here
-
 ;; [[file:~/dotfiles/emacs/.spacemacs.d/spacemacs.org::*DDSKK%E3%81%AE%E3%83%87%E3%83%95%E3%82%A9%E3%83%AB%E3%83%88%E5%8C%96%E3%81%A8%E3%82%AD%E3%83%BC%E3%83%90%E3%82%A4%E3%83%B3%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%83%BB%E5%8F%A5%E8%AA%AD%E7%82%B9][DDSKKのデフォルト化とキーバインディング・句読点:1]]
 (global-set-key "\C-x\C-j" 'skk-mode)
 (global-set-key "\C-xj" 'skk-auto-fill-mode)
