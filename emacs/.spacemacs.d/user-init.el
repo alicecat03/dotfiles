@@ -10,7 +10,7 @@
 ;; 画面透過:1 ends here
 
 ;; [[file:~/dotfiles/emacs/.spacemacs.d/spacemacs.org::*spacemacs%20%E3%83%86%E3%83%BC%E3%83%9E][spacemacs テーマ:1]]
-(setq-default dotspacemacs-themes '(deeper))
+(setq-default dotspacemacs-themes '(deeper-blue))
 ;; spacemacs テーマ:1 ends here
 
 ;; [[file:~/dotfiles/emacs/.spacemacs.d/spacemacs.org::*DDSKK%E3%81%AE%E3%83%87%E3%83%95%E3%82%A9%E3%83%AB%E3%83%88%E5%8C%96%E3%81%A8%E3%82%AD%E3%83%BC%E3%83%90%E3%82%A4%E3%83%B3%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%83%BB%E5%8F%A5%E8%AA%AD%E7%82%B9][DDSKKのデフォルト化とキーバインディング・句読点:1]]
