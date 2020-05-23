@@ -5,10 +5,12 @@
 #+OPTIONS: toc:4 h:4
 #+PROPERTY: header-args:emacs-lisp :comments link
 * Spacecmacsの設定をorg-modeで管理する
+** .spacemacsについて
+=~/.spacemacs= は =~/.spacemacs.d/init.el= よりも優先度が高いので，=~/.spacemacs= は削除しておく。
+- [[https://www.spacemacs.org/doc/DOCUMENTATION.html#alternative-dotdirectory]]
 ** 参考にしたもの
    - [[https://www.reddit.com/r/emacs/comments/7ntc6p/spacemacs_configuration_in_a_structured_orgmode/]]
 ** .spacemacs.d/init.el
-以下を追加する。
 #+BEGIN_SRC emacs-lisp :tangle no
 (defun dotspacemacs/user-init ()
 ;; tangle without actually loading org
@@ -42,7 +44,7 @@
     ))
 #+END_SRC
 ** Emacs テーマ
-#+BEGIN_SRC emacs-lisp :tangle user-init.el
+#+BEGIN_SRC emacs-lisp :tangle user-config.el
 (load-theme 'misterioso t)
 #+END_SRC
 * DDSKK
