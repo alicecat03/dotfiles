@@ -43,9 +43,10 @@
       (set-frame-parameter nil 'alpha 90) ;透明度
       ))
 #+END_SRC
-** Emacs テーマ
-#+BEGIN_SRC emacs-lisp :tangle user-config.el
-  (load-theme 'misterioso t)
+** spacemacs テーマ
+- [[https://themegallery.robdor.com/]]
+#+BEGIN_SRC emacs-lisp :tangle user-init.el
+  (setq-default dotspacemacs-themes '(deeper))
 #+END_SRC
 * DDSKK
 - [[https://ddskk.readthedocs.io/ja/latest/index.html]]
@@ -64,6 +65,10 @@ init.elに =dotspacemacs-additional-packages '(ddskk)= を追加
 
   (setq-default skk-kutouten-type 'jp-en)
 #+END_SRC
+** 設定ファイルを =~/.ddskk= にまとめる
+#+begin_src emacs-lisp :tangle user-init.el
+  (setq skk-user-directory "~/.ddskk")
+#+end_src
 * Org-mode
 ** org-tempoを読み込む 
 #+BEGIN_SRC emacs-lisp :tangle user-config.el
@@ -77,3 +82,4 @@ init.elに =dotspacemacs-additional-packages '(ddskk)= を追加
     :ensure t
     :after ox)
 #+END_SRC
+

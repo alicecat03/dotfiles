@@ -9,6 +9,10 @@
     ))
 ;; 画面透過:1 ends here
 
+;; [[file:~/dotfiles/emacs/.spacemacs.d/spacemacs.org::*spacemacs%20%E3%83%86%E3%83%BC%E3%83%9E][spacemacs テーマ:1]]
+(setq-default dotspacemacs-themes '(deeper))
+;; spacemacs テーマ:1 ends here
+
 ;; [[file:~/dotfiles/emacs/.spacemacs.d/spacemacs.org::*DDSKK%E3%81%AE%E3%83%87%E3%83%95%E3%82%A9%E3%83%AB%E3%83%88%E5%8C%96%E3%81%A8%E3%82%AD%E3%83%BC%E3%83%90%E3%82%A4%E3%83%B3%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%83%BB%E5%8F%A5%E8%AA%AD%E7%82%B9][DDSKKのデフォルト化とキーバインディング・句読点:1]]
 (global-set-key "\C-x\C-j" 'skk-mode)
 (global-set-key "\C-xj" 'skk-auto-fill-mode)
@@ -18,3 +22,7 @@
 
 (setq-default skk-kutouten-type 'jp-en)
 ;; DDSKKのデフォルト化とキーバインディング・句読点:1 ends here
+
+;; [[file:~/dotfiles/emacs/.spacemacs.d/spacemacs.org::*%E8%A8%AD%E5%AE%9A%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%20=~/.ddskk=%20%E3%81%AB%E3%81%BE%E3%81%A8%E3%82%81%E3%82%8B][設定ファイルを =~/.ddskk= にまとめる:1]]
+(setq skk-user-directory "~/.ddskk")
+;; 設定ファイルを =~/.ddskk= にまとめる:1 ends here
