@@ -1,5 +1,9 @@
 #+TITLE: READEME.org
 * dotfiles
+** 現在管理している設定ファイル
+*** [[https://www.gnu.org/software/emacs/][GNU Emacs]] with [[https://www.spacemacs.org/][spacemacs]]
+*** [[https://fishshell.com/][fish]]
+* dotfilesのインストール
 ** GNU Stow について
 この =dotfiles= は [[https://www.gnu.org/software/stow/][GNU Stow]] によって管理されています。
 GNU Stow はシンボリックリンクを管理するソフトウェアです。これはソースからビルドされたソフトウェアをユーザごとやシステム全体にインストールするのに役立ちますが，ホームディレクトリの設定ファイルを管理するのにも便利です。
