@@ -1,6 +1,6 @@
 ;;; packages.el --- BibTeX Layer packages file for Spacemacs.
 ;;
-;; Copyright (c) 2012-2017 Sylvain Benner & Contributors
+;; Copyright (c) 2012-2018 Sylvain Benner & Contributors
 ;;
 ;; Author: Joshua Ellis <josh@jpellis.me>
 ;; URL: https://github.com/JP-Ellis
@@ -9,24 +9,24 @@
 ;;
 ;;; License: GPLv3
 
-(defconst bibtex-packages
+(setq bibtex-packages
       '(
         auctex
         org
         org-ref
         markdown-mode
-        helm-bibtex
+        (helm-bibtex :requires helm)
         biblio
         biblio-core
         ))
 
 (defun bibtex/post-init-auctex ()
   (spacemacs/set-leader-keys-for-major-mode 'latex-mode
-    "ic" 'org-ref-helm-insert-cite-link))
+    "ic" 'org-ref-insert-link))
 
 (defun bibtex/post-init-org ()
   (spacemacs/set-leader-keys-for-major-mode 'org-mode
-    "ic" 'org-ref-helm-insert-cite-link))
+    "ic" 'org-ref-insert-link))
 
 (defun bibtex/init-org-ref ()
   (use-package org-ref
@@ -74,12 +74,12 @@
         "li" 'isbn-to-bibtex
         "lp" 'pubmed-insert-bibtex-from-pmid))))
 
-(defun bibtex/post-init-org-ref ()
+(defun bibtex/pre-init-org-ref ()
   (add-hook 'org-mode-hook (lambda () (require 'org-ref))))
 
 (defun bibtex/post-init-markdown-mode ()
   (spacemacs/set-leader-keys-for-major-mode 'markdown-mode
-    "ic" 'org-ref-helm-insert-cite-link))
+    "ic" 'org-ref-insert-link))
 
 (defun bibtex/init-helm-bibtex ())
 (defun bibtex/init-biblio ())

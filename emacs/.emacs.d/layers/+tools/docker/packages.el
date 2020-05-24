@@ -1,6 +1,6 @@
 ;;; packages.el --- docker Layer packages File for Spacemacs
 ;;
-;; Copyright (c) 2012-2017 Sylvain Benner
+;; Copyright (c) 2012-2019 Sylvain Benner & Contributors
 ;; Copyright (c) 2015 Alan Zimmerman & Contributors
 ;;
 ;; Author: Alan Zimmerman <alan.zimm@gmail.com>
@@ -15,6 +15,7 @@
     docker
     docker-tramp
     dockerfile-mode
+    flycheck
     ))
 
 (defun docker/init-docker ()
@@ -22,19 +23,23 @@
     :defer t
     :init
     (progn
-      (spacemacs/declare-prefix "D" "Docker")
+      (spacemacs/declare-prefix "aD" "Docker")
       (evil-leader/set-key
-        "Dc" 'docker-containers
-        "Dd" 'docker-rmi
-        "De" 'docker-unpause
-        "DF" 'docker-pull
-        "Dk" 'docker-rm
-        "Di" 'docker-images
-        "Do" 'docker-stop
-        "DP" 'docker-push
-        "Dp" 'docker-pause
-        "Dr" 'docker-restart
-        "Ds" 'docker-start)))
+        "aDc" 'docker-containers
+        "aDC" 'docker-compose
+        "aDd" 'docker-rmi
+        "aDe" 'docker-unpause
+        "aDF" 'docker-pull
+        "aDk" 'docker-rm
+        "aDi" 'docker-images
+        "aDm" 'docker-machines
+        "aDn" 'docker-networks
+        "aDo" 'docker-stop
+        "aDP" 'docker-push
+        "aDp" 'docker-pause
+        "aDr" 'docker-restart
+        "aDs" 'docker-start
+        "aDv" 'docker-volumes)))
   (with-eval-after-load 'docker-containers
     (evilified-state-evilify-map docker-containers-mode-map
       :mode docker-containers-mode))
@@ -47,7 +52,14 @@
     :defer t))
 
 (defun docker/init-dockerfile-mode ()
-  (use-package docker-mode
+  (use-package dockerfile-mode
     :defer t
-    :config (evil-leader/set-key-for-mode 'dockerfile-mode
-              "mcb" 'dockerfile-build-buffer)))
+    :init (add-hook 'dockerfile-mode-local-vars-hook #'spacemacs//docker-dockerfile-setup-backend)
+    :config
+    (spacemacs/declare-prefix-for-mode 'dockerfile-mode "mc" "compile")
+    (spacemacs/set-leader-keys-for-major-mode 'dockerfile-mode
+      "cb" 'dockerfile-build-buffer
+      "cB" 'dockerfile-build-no-cache-buffer)))
+
+(defun docker/post-init-flycheck ()
+  (spacemacs/enable-flycheck 'dockerfile-mode))
