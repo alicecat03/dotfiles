@@ -5,7 +5,7 @@
 #+OPTIONS: toc:4 h:4
 #+PROPERTY: header-args:emacs-lisp :comments link
 * Spacecmacsの設定をorg-modeで管理する
-** .spacemacsについて
+** .spacemacsを削除する
 =~/.spacemacs= は =~/.spacemacs.d/init.el= よりも優先度が高いので， =~/.spacemacs= は削除しておく。
 - [[https://www.spacemacs.org/doc/DOCUMENTATION.html#alternative-dotdirectory]]
 ** 参考にしたもの
