@@ -67,13 +67,6 @@
     #+end_src
 ** migemo の設定 
 - migemo: [[https://github.com/emacs-jp/migemo]]
-    #+begin_src emacs-lisp :tangle uer-config.el
-     (with-eval-after-load "migemo"
-       (helm-migemo-mode 1)
-       (require 'avy-migemo-e.g.ivy)
-       (require 'avy-migemo-e.g.swiper)
-       (require 'avy-migemo-e.g.counsel))
-    #+end_src 
 
 ** DDSKK のデフォルト化とキーバインディング・句読点
 - DDSKK: [[https://ddskk.readthedocs.io/ja/latest/index.html]]
@@ -96,10 +89,31 @@
       (when (version<= "9.2" (org-version))
        (require 'org-tempo))
     #+end_src 
-* ox-hugo
-- [[https://ox-hugo.scripter.co/]]
+** ox-hugo
+- [[ox-hugo: https://ox-hugo.scripter.co/]]
     #+begin_src emacs-lisp :tangle user-config.el
       (use-package ox-hugo
         :ensure t
         :after ox)
     #+end_src
+* EWW
+- EWW: [[https://www.gnu.org/software/emacs/manual/html_mono/eww.html]]
+** 新しい EWW バッファの名前を自動的に変更
+- [[https://emacs.stackexchange.com/questions/24472/simple-method-for-creating-multiple-eww-buffers]]
+- [[http://ergoemacs.org/emacs/emacs_eww_web_browser.html]]
+   #+begin_src emacs-lisp :tangle user-init.el
+     (defun xah-rename-eww-hook ()
+       "Rename eww browser's buffer so sites open in new page."
+       (rename-buffer "eww" t))
+     (add-hook 'eww-mode-hook #'xah-rename-eww-hook)
+
+     (defun modi/force-new-eww-buffer (orig-fun &rest args)
+       "When prefix argument is used, a new eww buffer will be created,
+     regardless of whether the current buffer is in `eww-mode'."
+       (if current-prefix-arg
+           (with-temp-buffer
+             (apply orig-fun args))
+         (apply orig-fun args)))  
+     (advice-add 'eww :around #'modi/force-new-eww-buffer)
+   #+end_src
+** 
