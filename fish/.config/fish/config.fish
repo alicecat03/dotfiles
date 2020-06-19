@@ -38,3 +38,4 @@ function nullpo --on-event fish_command_not_found
 end
 
 set PATH $HOME/adb-fastboot/platform-tools $PATH
+set PATH /usr/local/bin /usr/sbin $PATH
