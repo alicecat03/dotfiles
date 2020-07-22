@@ -33,6 +33,7 @@
    '(
      javascript
      typescript
+     common-lisp
      html
      python
      japanese
