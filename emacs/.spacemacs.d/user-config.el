@@ -8,3 +8,6 @@
   :ensure t
   :after ox)
 ;; ox-hugo:1 ends here
+
+;; for 	common lisp layer 
+(setq inferior-lisp-program "/path/to/your/lisp"))
