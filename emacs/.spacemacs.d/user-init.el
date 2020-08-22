@@ -1,6 +1,5 @@
 ;; [[file:~/dotfiles/emacs/.spacemacs.d/spacemacs.org::*%E8%A1%8C%E7%95%AA%E5%8F%B7%E3%82%92%E8%A1%A8%E7%A4%BA][行番号を表示:1]]
-(when (version<= "26.0.50" emacs-version )
-  (global-display-line-numbers-mode))
+(global-linum-mode t)
 ;; 行番号を表示:1 ends here
 
 ;; [[file:~/dotfiles/emacs/.spacemacs.d/spacemacs.org::*%E7%94%BB%E9%9D%A2%E9%80%8F%E9%81%8E][画面透過:1]]

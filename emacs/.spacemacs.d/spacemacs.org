@@ -34,8 +34,7 @@
 * 基本設定
 ** 行番号を表示
     #+begin_src emacs-lisp :tangle user-init.el
-      (when (version<= "26.0.50" emacs-version )
-        (global-display-line-numbers-mode))
+      (global-linum-mode t)
     #+end_src
 ** 画面透過
     #+begin_src emacs-lisp :tangle user-init.el
