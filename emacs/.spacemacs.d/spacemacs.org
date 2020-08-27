@@ -89,7 +89,7 @@
        (require 'org-tempo))
     #+end_src 
 ** ox-hugo
-- [[ox-hugo: https://ox-hugo.scripter.co/]]
+- ox-hugo:  [[https://ox-hugo.scripter.co/]]
     #+begin_src emacs-lisp :tangle user-config.el
       (use-package ox-hugo
         :ensure t
