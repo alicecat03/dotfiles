@@ -47,6 +47,8 @@
     #+begin_src emacs-lisp :tangle user-init.el
       (setq-default dotspacemacs-themes '(deeper-blue))
     #+end_src
+** フォントのインストール(Source Code Pro)
+ - [[https://github.com/adobe-fonts/source-code-pro]]
 * 日本語入力の設定
 ** +MEPLA 経由で DDSKK を追加する+
 +init.el に =dotspacemacs-additional-packages '(ddskk)= を追加+
