@@ -64,7 +64,10 @@
 ** cmigemo をインストール
 - cmigemo: [[https://github.com/koron/cmigemo]]
     #+begin_src shell :tanlge no
-      apt install cmigemo
+      # in Debian based distro
+      apt install emigemo
+      # in macOS
+      brew install cmigemo
     #+end_src
 ** migemo の設定 
 - migemo: [[https://github.com/emacs-jp/migemo]]
