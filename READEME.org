@@ -3,7 +3,7 @@
 ** 現在管理している設定ファイル
 *** [[https://www.gnu.org/software/emacs/][GNU Emacs]] with [[https://www.spacemacs.org/][spacemacs]]
 *** [[https://fishshell.com/][fish]]
-* dotfilesのインストール
+* dotfiles のインストール
 ** GNU Stow について
 この =dotfiles= は [[https://www.gnu.org/software/stow/][GNU Stow]] によって管理されています。
 GNU Stow はシンボリックリンクを管理するソフトウェアです。これはソースからビルドされたソフトウェアをユーザごとやシステム全体にインストールするのに役立ちますが，ホームディレクトリの設定ファイルを管理するのにも便利です。
@@ -31,3 +31,22 @@ GNU Stow はシンボリックリンクを管理するソフトウェアです�
    #+begin_src shell
      stow -D hoge
    #+end_src
+
+* dotfiles の構成
+dotfiles/
+├── LICENSE
+├── READEME.org
+├── emacs
+│   ├── .ddskk
+│   └── .spacemacs.d
+│       ├── .spacemacs.env
+│       ├── init.el
+│       ├── spacemacs.org
+│       ├── uer-config.el
+│       ├── user-config.el
+│       └── user-init.el
+├── fish
+│   └── .config
+│       └── fish
+│           └── config.fish
+└── pass
